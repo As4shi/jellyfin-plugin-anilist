@@ -10,12 +10,12 @@ namespace Jellyfin.Plugin.AniList.Configuration
         Localized,
 
         /// <summary>
-        /// Use titles in JapanesePeople.
+        /// Use titles in Japanese.
         /// </summary>
         Japanese,
 
         /// <summary>
-        /// Use titles in JapanesePeople romaji.
+        /// Use titles in Japanese romaji.
         /// </summary>
         JapaneseRomaji
     }
