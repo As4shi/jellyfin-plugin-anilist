@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -26,11 +26,13 @@
                                 <option id="optLanguageJapaneseRomaji" value="JapaneseRomaji">Romaji</option>
                             </select>
                         </div>
-                        <div class="checkboxContainer checkboxContainer-withDescription">
-                            <label class="emby-checkbox-label">
-                                <input id="chkFilterPeopleByTitlePreference" name="chkFilterPeopleByTitlePreference" type="checkbox" is="emby-checkbox" />
-                                <span>Filter people by title preference</span>
-                            </label>
+                        <div class="selectContainer">
+                            <label class="selectLabel" for="voiceActorLanguage">Filter people</label>
+                            <select is="emby-select" id="voiceActorLanguage" name="voiceActorLanguage" class="emby-select-withcolor emby-select">
+                                <option id="optFilterJapanese" value="JapanesePeople">Japanese</option>
+                                <option id="optFilterDub" value="NonJapanesePeople">Non Japanese</option>
+                                <option id="optFilterAll" value="AllPeople">All</option>
+                            </select>
                         </div>
                         <div class="inputContainer">
                             <label class="inputeLabel inputLabelUnfocused" for="chkMaxGenres">Max Genres</label>
@@ -81,7 +83,7 @@
                         ApiClient.getPluginConfiguration(AniListConfigurationPage.pluginUniqueId).then(function (config) {
                             document.getElementById('titleLanguage').value = config.TitlePreference;
                             document.getElementById('originalTitleLanguage').value = config.OriginalTitlePreference;
-                            document.getElementById('chkFilterPeopleByTitlePreference').checked = config.FilterPeopleByTitlePreference;
+                            document.getElementById('voiceActorLanguage').value = config.PeoplePreference;
                             document.getElementById('chkMaxGenres').value = config.MaxGenres;
                             document.getElementById('animeDefaultGenre').value = config.AnimeDefaultGenre;
                             document.getElementById('chkAniDbRateLimit').value = config.AniDbRateLimit;
@@ -98,7 +100,7 @@
                         ApiClient.getPluginConfiguration(AniListConfigurationPage.pluginUniqueId).then(function (config) {
                             config.TitlePreference = document.getElementById('titleLanguage').value;
                             config.OriginalTitlePreference = document.getElementById('originalTitleLanguage').value;
-                            config.FilterPeopleByTitlePreference = document.getElementById('chkFilterPeopleByTitlePreference').checked;
+                            config.PeoplePreference = document.getElementById('voiceActorLanguage').value;
                             config.MaxGenres = document.getElementById('chkMaxGenres').value;
                             config.AnimeDefaultGenre = document.getElementById('animeDefaultGenre').value;
                             config.AniDbRateLimit = document.getElementById('chkAniDbRateLimit').value;
